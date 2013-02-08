@@ -209,7 +209,7 @@ class LList:
 			current = |_a_|__|-->
 
 			Then the program says, is the next thing of the current node None?
-								  				___ __
+								  				  ___ __
 			Lets check that: current.getNext() = |_b_|__|-->
 
 			Since the next thing is a node and not None we set the 'current'

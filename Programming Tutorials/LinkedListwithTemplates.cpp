@@ -35,7 +35,35 @@ for ints, doubles, bools, etc.
 
 using namespace std;
 
-template <class type>
+template <class type> // This is the syntax for a templated declaration of a class
+/*
+Whoa. What does this mean? Well, we're making a templated class so the 'template' keyword sets that up
+for us. But what is the '<class type>' thing all about? That's what we call a 'template parameter'.
+The template parameter is what give us the power to declare what type we want our Nodes and Linked List (in this case)
+to be. You can think of it this way:
+
+Lets say we have a method called 'square' which squares a number we give it. We would make it like so:
+
+			int square(int x){
+				return x ** 2;
+			}
+
+This method says it is looking for an 'int' to be passed in to it and it will return an 'int'
+that is the square of the number passed in. Easy enough, right? We say that the parameter of that function
+is 'x' and the 'type' that 'x' is is an int.
+
+Now, going back to our template, the template parameter actually takes in a 'type' as opposed to a variable
+like 'x'. Instead, our template parameter would take in the 'int' part. That would make our class hold an
+'int'. We could pass it any type as a matter of fact. We could pass it a 'bool', 'double', 'string', etc. The
+'type' you see after 'class' in <class type> gets assigned to whatever type we pass it. Like in our example
+function above, if we passed our square function a 4, 'x' (the parameter) would be assigned a value of 4. It's
+the same deal here. 'type' gets assigned to whatever type we pass it. It will become clearer as we go through
+the tutorial. So what is this 'class' keyword before it? For now lets just say that it's the type's declaration
+and it can be interchanged with the keyword 'typename'. Why choose class then? Simply because you can. Both
+'typename' and 'class' do the same thing. A type's declaration???? Huh? Think of it this way, we declare variables
+by telling the computer its type then name, so 'int x' means x is an integer and it can be assigned any integer
+value. Here, we're just declaring the type where 'type' is acting like a variable.
+*/
 class Node
 {
 private:
@@ -44,6 +72,15 @@ private:
 public:
 	Node() {}; // copy constructor
 	Node(type item) {this->cargo = item;} // constructor
+	/*
+	type item? Wha? Remember the template parameter we set up above? Remember how 'int x' means x is an integer? 
+	Here, 'type' is the data type we passed in as the template parameter, so it gets replaced with whatever type we sent
+	in. So if we replace 'type' with a type we passed in (lets say an int) it would be 'int item' as the parameter. This is why
+	templating is so great. We only have to declare the type once in the main function and the templating will do the rest. This
+	also applies to return values of methods like in the function below, getCargo(). It should return a variable of whatever type
+	you passed in to the class. 
+	(To see how we declare these templated classes scroll down to the main function)
+	*/
 	type getCargo() {return this->cargo;} // return cargo
 	Node* getNext() {return next;} // return next node
 	void setNext(Node* newNode) {this->next = newNode;} // set next node
@@ -122,7 +159,14 @@ void LinkedList<type>::display()
 int main()
 {
 	LinkedList<int>* myLList = new LinkedList<int>(); // new LinkedList
-	
+	/*
+	So now you know how to implement a templated class. Now how do we declare it? Well, it's actually
+	the same exact way we would normally do it except now we have to tell it what type it is holding.
+	To do this we use diamond notation. That's just a way for the computer to tell that what's being
+	passed in is a template parameter as opposed to an initializer parameter for instance. What goes in the
+	diamons braces? Simply the data type (int, bool, long, you name it!). Above is an example on how to
+	do it. 
+	*/	
 	int randomNumber; // int to hold random number
 	srand(time(NULL)); // set up random number generator
 
@@ -136,3 +180,4 @@ int main()
 	(*myLList).search(63); // test search function
 	return 0;
 }
+// Thanks for reading my walkthrough and I hope it was helpful!

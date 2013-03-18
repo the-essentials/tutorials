@@ -6,15 +6,15 @@ class Node
 		@right = nil
 	end
 
-	def getLeft
+	def getLeft()
 		return @left
 	end
 
-	def getCargo
+	def getCargo()
 		return @cargo
 	end
 
-	def getRight
+	def getRight()
 		return @right
 	end
 
@@ -30,7 +30,7 @@ end
 
 class BinaryTree
 
-	def initialize
+	def initialize()
 		@root = nil
 	end
 
@@ -40,20 +40,20 @@ class BinaryTree
 		else
 			current = @root
 
-			while current.getRight != nil || current.getLeft != nil
-				if item < current.getCargo
-					if current.getLeft == nil
+			while current.getRight() != nil || current.getLeft() != nil
+				if item < current.getCargo()
+					if current.getLeft() == nil
 						current.setLeft(Node.new(item))
 						return
 					else
-						current = current.getLeft
+						current = current.getLeft()
 					end
 				else
-					if current.getRight == nil
+					if current.getRight() == nil
 						current.setRight(Node.new(item))
 						return
 					else
-						current = current.getRight
+						current = current.getRight()
 					end
 				end
 			end
@@ -66,15 +66,15 @@ class BinaryTree
 		else
 			current = @root
 			while current != nil
-				if current.getCargo == item
+				if current.getCargo() == item
 					puts "Found "+item.to_s
 					return
 				else
-					puts current.getCargo
-					if item < current.getCargo
-						current = current.getLeft
+					puts current.getCargo()
+					if item < current.getCargo()
+						current = current.getLeft()
 					else
-						current = current.getRight
+						current = current.getRight()
 					end
 				end
 			end

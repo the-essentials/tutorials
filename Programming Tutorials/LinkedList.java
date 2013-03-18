@@ -12,7 +12,7 @@ class Node<type>
 	}
 }
 
-class LList
+class LList<type>
 {
 	void LList()
 	{

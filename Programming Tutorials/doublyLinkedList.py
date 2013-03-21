@@ -98,13 +98,15 @@ class LinkedList:
 def main():
 	myLList = LinkedList()
 
+	print myLList
+	"""
 	myLList.insert(1)
 	myLList.insert(2)
 
 	myLList.delete(1)
 
 	myLList.displayBackwards()
-
+	"""
 if __name__ == '__main__':
 	main()
 
